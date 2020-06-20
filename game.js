@@ -6,7 +6,7 @@ var level = 0;
 //Sound function
 function playSound(name) {
   var sound = new Audio("sounds/" + name + ".mp3");
-  sound.play();
+  sound.play()
 }
 //Random button animation
 function buttonFlash(name) {
@@ -37,10 +37,8 @@ function nextSequence() {
   userClickedPattern = [];
 };
 
-
-//The Game
-$(document).one("swipe", playgame);
-
+// The Game
+$("body").one("swipe", playgame);
 function playgame() {
   nextSequence();
   $(".btn").on("tap",userInput);
@@ -68,8 +66,9 @@ function playgame() {
       }, 200);
 
       $(".btn").off("tap");
-      $(document).one("swipe",playgame);
+      $("body").one("swipe",playgame);
       resetValues();
     }
   }
 }
+
