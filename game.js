@@ -39,17 +39,11 @@ function nextSequence() {
 
 
 //The Game
-$(document).one("keydown", playgame);
-$(document).on("pagecreate","#pageone",function(){
-  $(document).one("swipe",playgame);
-});
+$(document).one("swipe", playgame);
 
 function playgame() {
   nextSequence();
-  $(".btn").on("click",userInput);
-  $(document).on("pagecreate","#pageone",function(){
-  $(".btn").on("tap", userInput);
-});
+  $(".btn").on("tap",userInput);
   function userInput() {
     var userChosenColor = this.id;
     userClickedPattern.push(userChosenColor);
@@ -67,20 +61,14 @@ function playgame() {
       }
     } else {
       playSound("wrong");
-      $("#level-title").text("Game Over, Press any key or Swipe left/right to Restart!");
+      $("#level-title").text("Game Over, Swipe left/right to Restart!");
       $("body").addClass("game-over");
       setTimeout(function() {
         $("body").removeClass("game-over");
       }, 200);
 
-      $(".btn").off("click");
-      $(document).on("pagecreate","#pageone",function(){
       $(".btn").off("tap");
-    });
-      $(document).one("keydown", playgame);
-      $(document).on("pagecreate","#pageone",function(){
-        $(document).one("swipe",playgame);
-      });
+      $(document).one("swipe",playgame);
       resetValues();
     }
   }
