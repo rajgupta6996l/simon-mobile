@@ -61,7 +61,7 @@ function playgame() {
       }
     } else {
       playSound("wrong");
-      $("#level-title").text("Game Over, Swipe left/right to Restart!");
+      $("#level-title").text("Game Over, Swipe left or right to Restart!");
       $("body").addClass("game-over");
       setTimeout(function() {
         $("body").removeClass("game-over");
